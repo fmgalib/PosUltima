@@ -56,7 +56,7 @@
                   
                     $users = UserController::ctrReadUser();
                     $count = 0;
-                    foreach ($users as $row) { 
+                    foreach ($users as $key => $row) { 
                   ?>  
 
                     <tr>
@@ -91,7 +91,7 @@
                         </button>
 
 
-                        <button class="btn btn-sm btn-outline-danger deleteUser" id="<?php echo $row["user_id"] ?>"><i class="fa fa-trash"></i>Delete
+                        <button class="btn btn-sm btn-outline-danger deleteUser" id="<?php echo $row["user_id"] ?>" delete_img="<?php echo $row["user_image"] ?>"><i class="fa fa-trash"></i>Delete
                         </button>
 
                       </td>

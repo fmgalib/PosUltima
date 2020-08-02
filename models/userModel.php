@@ -61,30 +61,34 @@ class User{
 	}
 
 	// Delete User
-	public function deleteUser($id){
+	public function deleteUser($id, $img){
 		$sql = "DELETE FROM users WHERE user_id = :id";
 		$stmt = Connection::connect()->prepare($sql);
 		$stmt->execute(['id'=>$id]);
+		unlink('../resources/images/users/'.$img);
 		return true;
 	}
+
+	// Update User
+	public function updateUser($id, $first_name, $last_name, $email, $password, $phone, $role, $image){
+		$sql = "UPDATE users SET first_name = :first_name, last_name = :last_name, user_email = :email, user_password = :password, user_phone = :phone, user_role = :role, user_image = :image WHERE user_id = :id";
+
+		$stmt = Connection::connect()->prepare($sql);
+		
+
+		if ($stmt->execute(['id'=>$id, 'first_name'=>$first_name, 'last_name'=>$last_name, 'email'=>$email, 'password'=>$password, 'phone'=>$phone, 'role'=>$role, 'image'=>$image])
+		) {
+			
+			return "ok";
+		}else{
+			return "error";
+		}
+		
+	}
+
 }
 	
 
-	// // Update User
-	// public function update($id, $fullName, $userName, $email, $password, $phone, $role, $image){
-	// 	$sql = "UPDATE user SET user_full_name = :fullName, user_name = :userName, user_email = :email, user_password = :password, user_phone = :phone, user_role = :role, user_image = :image WHERE id = :id";
-	// 	$stmt = $this->conn->prepare($sql);
-	// 	$stmt->execute(['fullName'=>$fullName, 'userName'=>$userName, 'email'=>$email, 'password'=>$password, 'phone'=>$phone, 'role'=>$role, 'image'=>$image, 'user_id'=>$id]);
-	// 	return true;
-	// }
-
-	// // Delete User
-	// public function delete($id){
-	// 	$sql = "DELETE FROM users WHERE user_id = :id";
-	// 	$stmt = $this->conn->prepare($sql);
-	// 	$stmt->execute(['id'=>$id]);
-	// 	return true;
-	// }
-
+	
 	
 	

@@ -104,7 +104,7 @@
       </div>
       
       <?php  
-        $insert = new userController();
+        $insert = new UserController();
         $insert->ctrInsertUser();
       ?>
 

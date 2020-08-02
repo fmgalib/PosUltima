@@ -6,11 +6,15 @@ require_once "../models/userModel.php";
 $user = new User();
 
 
-if (isset($_POST["userId"])) {
+if (isset($_POST["action"])) {
 
-	$id = $_POST["userId"];
+	if ($_POST["action"] == "delete") {
+		$id = $_POST["userId"];
+		$img = $_POST["delete_img"];
+		$user->deleteUser($id, $img);
+	}
 
-	$user->deleteUser($id);
+	
 
 
 }

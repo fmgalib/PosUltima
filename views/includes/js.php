@@ -35,8 +35,8 @@
 		$(".deleteUser").click(function(e){
 				e.preventDefault();
 				var userId = $(this).attr("id");
-				
-				// console.log(userId);
+				var delete_img = $(this).attr("delete_img");
+				var action = "delete";
 				
 			Swal.fire({
 			  text: 'Do you really want to delete this user?',
@@ -48,7 +48,7 @@
 							$.ajax({
 								url: "ajax/userAjax.php",
 								method: "POST",
-								data: {userId:userId},
+								data: {userId:userId, delete_img:delete_img, action:action},
 								success:function(response){
 									Swal.fire({
 									  text: 'User successfully deleted!',
