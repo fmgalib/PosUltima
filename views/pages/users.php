@@ -84,7 +84,7 @@
 
                         <button class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#infoUserModal<?php echo $row['user_id'];?>"><i class="fa fa-info"></i></button>
                         
-                        <button class="btn btn-sm btn-outline-warning" data-toggle="modal" data-target="#statusModal<?php echo $row['user_id'];?>"><i class="fa fa-sync"></i>Status
+                        <button class="btn btn-sm btn-outline-warning" data-toggle="modal" data-target="#statusUserModal<?php echo $row['user_id'];?>"><i class="fa fa-sync"></i>Status
                         </button>
 
                         <button class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#editUserModal<?php echo $row['user_id'];?>"><i class="fa fa-edit"></i>Edit
@@ -101,7 +101,8 @@
                       <!-- User Info Modal -->
                       <?php include "views/modals/user/infoUserModal.php" ?>
                       <!-- User Update Modal -->
-                      <?php include "views/modals/user/editUserModal.php" ?>
+                      <?php include "views/modals/user/editUserModal.php" ?><!-- User Update Modal -->
+                      <?php include "views/modals/user/statusUserModal.php" ?>
                       
 
 

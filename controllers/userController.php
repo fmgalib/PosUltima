@@ -88,6 +88,25 @@ class UserController{
       }
     }
   }
+
+  // User Status Update
+  public function ctrChangeStatus(){
+    if (isset($_POST['statusUpdate'])) {
+     if ($_POST['status'] == 0) {
+       $id = $_POST['id'];
+       $request = User::activateUser($id);
+       if ($request == "ok") {
+        echo '<script>window.location = "users";</script>';
+      }
+     }else{
+        $id = $_POST['id'];
+        $request = User::dectivateUser($id);
+        if ($request == "ok") {
+        echo '<script>window.location = "users";</script>';
+      }
+     }
+    }
+  }
   
 }
 

@@ -65,6 +65,15 @@
             </div>
           </div>
 
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="text-bold">Password</p>
+            </div>
+            <div class="col-sm-6">
+              <p><?php echo $row['user_password'];?></p>
+            </div>
+          </div>
+
 
           <div class="row">
             <div class="col-sm-6">

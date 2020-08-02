@@ -44,20 +44,20 @@ class User{
 
 	// Activate User
 	public function activateUser($id){
-		$sql = "UPDATE user SET user_status = 1 WHERE user_id = :id";
+		$sql = "UPDATE users SET user_status = 1 WHERE user_id = :id";
 		$stmt = Connection::connect()->prepare($sql);
 		$stmt->execute(['id'=>$id]);
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		return $result;
+		return "ok";
 	}
 
 	// Deactivate User
 	public function dectivateUser($id){
-		$sql = "UPDATE user SET user_status = 0 WHERE user_id = :id";
+		$sql = "UPDATE users SET user_status = 0 WHERE user_id = :id";
 		$stmt = Connection::connect()->prepare($sql);
 		$stmt->execute(['id'=>$id]);
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		return $result;
+		return "ok";
 	}
 
 	// Delete User
@@ -74,7 +74,7 @@ class User{
 		$sql = "UPDATE users SET first_name = :first_name, last_name = :last_name, user_email = :email, user_password = :password, user_phone = :phone, user_role = :role, user_image = :image WHERE user_id = :id";
 
 		$stmt = Connection::connect()->prepare($sql);
-		
+
 
 		if ($stmt->execute(['id'=>$id, 'first_name'=>$first_name, 'last_name'=>$last_name, 'email'=>$email, 'password'=>$password, 'phone'=>$phone, 'role'=>$role, 'image'=>$image])
 		) {
